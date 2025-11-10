@@ -1,0 +1,270 @@
+{
+  "meta": {
+    "version": "3.1",
+    "last_updated": "2025-11-10",
+    "channel": "whatsapp",
+    "brand": "AI Factory"
+  },
+  "communication_policy": {
+    "default_language": "tr",
+    "mirror_user_language": true,
+    "proactive_disclaimers": {
+      "no_financial_guarantee": false
+    }
+  },
+  "value_prop": {
+    "headline_tr": "2 ay içinde yapay zekâ sistemlerini kopyala, özelleştir ve gelir elde etmeye başla",
+    "headline_en": "Clone, customize, and start monetizing AI systems within ~2 months",
+    "is_guarantee": false
+  },
+  "plans": [
+    {
+      "id": "standard",
+      "name": "Standard",
+      "currency": "USD",
+      "monthly_price": 39,
+      "annual_price": 189,
+      "annual_savings_percent": 59.6,
+      "benefits": [
+        "Eğitimlere erişim",
+        "Otomasyonlara erişim"
+      ],
+      "refund_policy": "Erişim verildiğinde iade yok (içerik ve otomasyonlar tam teslim)."
+    },
+    {
+      "id": "premium",
+      "name": "Premium",
+      "currency": "USD",
+      "monthly_price": 59,
+      "annual_price": 279,
+      "annual_savings_percent": 60.7,
+      "benefits": [
+        "Eğitimlere erişim",
+        "Otomasyonlara erişim",
+        "Sınırsız yazılı destek (Skool)",
+        "Haftalık toplantılar"
+      ],
+      "support": {
+        "channel": "Skool (DM/post yorumları)",
+        "sla_hours": 48
+      },
+      "refund_policy": "Dolunay yazılı desteği makul sürede sağlayamazsa iade hakkı doğar."
+    },
+    {
+      "id": "vip",
+      "name": "VIP",
+      "currency": "USD",
+      "monthly_price": 99,
+      "annual_price": 457,
+      "annual_savings_percent": 61.6,
+      "benefits": [
+        "Eğitimlere erişim",
+        "Otomasyonlara erişim",
+        "Sınırsız yazılı destek (Skool)",
+        "Haftalık toplantılar",
+        "Aylık 1:1 görüşme (60 dk)",
+        "İş fırsatlarına erişim"
+      ],
+      "one_on_one": {
+        "duration_minutes": 60,
+        "platform": "Zoom",
+        "no_show_policy": "Karşılıklı uygunlukla yeniden planlama; makul çaba gösterilir."
+      },
+      "jobs": {
+        "description": "Dolunay’ın yetişemediği müşteri talepleri toplulukta paylaşılır; VIP üyeler işi üstlenir.",
+        "commission_to_dolunay": 0,
+        "who_handles_client": "VIP üye doğrudan müşteriyle çalışır."
+      },
+      "refund_policy": "Dolunay aylık 1:1’i makul çabayla sağlayamazsa iade hakkı doğar."
+    }
+  ],
+  "delivery": {
+    "platform": "Skool",
+    "community_url": "https://www.skool.com/yapay-zeka-factory",
+    "modules": [
+      {
+        "id": "n8n_basics",
+        "title": "Sıfırdan n8n Uzmanlığı",
+        "install_ready": true
+      },
+      {
+        "id": "hotel_ai",
+        "title": "Hotel — AI Müşteri Hizmetleri",
+        "install_ready": true
+      },
+      {
+        "id": "supermarket_stock",
+        "title": "Süpermarket — AI Stok Kontrolü",
+        "install_ready": true
+      },
+      {
+        "id": "real_estate_ai",
+        "title": "Emlak — AI Asistan",
+        "install_ready": true
+      },
+      {
+        "id": "youtube_auto",
+        "title": "YouTube — Otomatik Video Üret & Yayınla",
+        "install_ready": true
+      },
+      {
+        "id": "influencer_income",
+        "title": "Influencer — Influencer Gibi Kazan",
+        "install_ready": true
+      },
+      {
+        "id": "other_automations",
+        "title": "Diğer Otomasyonlar",
+        "install_ready": true
+      },
+      {
+        "id": "linkedin_auto",
+        "title": "LinkedIn — Otomatik Yayın & İş Geliştirme",
+        "install_ready": true
+      }
+    ],
+    "setup_time_minutes_range": [
+      30,
+      60
+    ],
+    "includes_install_videos": true,
+    "content_updates": {
+      "automations_updated_regularly": true,
+      "new_videos_added": true
+    }
+  },
+  "live_sessions": {
+    "per_week": 3,
+    "types": {
+      "tuesday_all_members": "Doğaçlama canlı otomasyon kurma",
+      "saturday_qa": "Soru-cevap odaklı",
+      "third_session": "Haftalık programa göre değişebilir"
+    },
+    "calendar_source": "Skool Calendar sekmesi",
+    "recordings_available": true
+  },
+  "costs": {
+    "upfront_usd_approx": 20,
+    "recurring_examples": [
+      {
+        "tool": "n8n",
+        "cost": "$5/ay"
+      },
+      {
+        "tool": "Opsiyonel video üretim hizmeti",
+        "cost": "Kullanıma göre değişir"
+      }
+    ]
+  },
+  "language": {
+    "default": "tr",
+    "respond_in_user_language": true
+  },
+  "policies": {
+    "cancellation": "İstediğin an iptal; yenileme tarihine kadar erişim devam eder.",
+    "refunds": {
+      "standard": "Erişim verildikten sonra iade yok.",
+      "premium": "48 saat SLA ihlali gibi durumlarda iade hakkı.",
+      "vip": "Aylık 1:1 sağlanamazsa iade hakkı."
+    }
+  },
+  "enterprise": {
+    "available": true,
+    "when": "Şirket, topluluğa katılmadan doğrudan hizmet almak isterse",
+    "action": "Formu doldurun",
+    "form_url": "https://docs.google.com/forms/d/e/1FAIpQLScP6QbLQzNJklskpaOFzuKz5asA0JyTMqwcee7akxMh7KJXwg/viewform"
+  },
+  "links": {
+    "approved_only": true,
+    "approved_list": [
+      "https://www.skool.com/yapay-zeka-factory",
+      "https://docs.google.com/forms/d/e/1FAIpQLScP6QbLQzNJklskpaOFzuKz5asA0JyTMqwcee7akxMh7KJXwg/viewform"
+    ]
+  },
+  "handoff": {
+    "token": "HUMAN_HANDOFF",
+    "use_cases": [
+      "Satın alma/ücret/iş birliği niyeti veya görüşme talebi",
+      "Kişisel değerlendirme/teklif yazımı",
+      "Kullanıcı açıkça Dolunay’ın yanıtını isterse",
+      "Belirsizlik ve insan dokunuşu gerektiğinde"
+    ],
+    "link_before_handoff_when_topic_is_ai_factory": "https://www.skool.com/yapay-zeka-factory"
+  },
+  "faq": [
+    {
+      "q": "Hangi dilde destek alırım?",
+      "a": "Varsayılan Türkçe; hangi dilde yazarsan o dilde cevaplanır."
+    },
+    {
+      "q": "Canlı yayınları kaçırırsam?",
+      "a": "Kayıtlar paylaşılır."
+    },
+    {
+      "q": "Kurulum ne kadar sürer?",
+      "a": "Genelde 30–60 dk; kurulum videoları hazır."
+    },
+    {
+      "q": "İş fırsatları nasıl çalışır?",
+      "a": "VIP üyelerle paylaşılan müşteri işleri komisyonsuz olarak üyelerce üstlenilir."
+    }
+  ],
+  "billing": {
+    "upgrade_mid_cycle": true,
+    "downgrade_mid_cycle": "unspecified",
+    "proration": "unspecified",
+    "annual_cancel_refund": "unspecified",
+    "payment_methods": [
+      "credit_card"
+    ],
+    "coupon_codes": false,
+    "trial_available": false
+  },
+  "support": {
+    "standard": {
+      "written_support": false
+    },
+    "premium": {
+      "written_support": true,
+      "channel": "Skool (DM/posts)",
+      "target_response_hours": 24,
+      "max_response_hours": 48
+    },
+    "vip": {
+      "written_support": true,
+      "channel": "Skool (DM/posts)",
+      "target_response_hours": 24,
+      "max_response_hours": 48,
+      "one_on_one_monthly": 1
+    }
+  },
+  "vip_jobs": {
+    "eligibility": "Öncelik VIP, sonra Premium",
+    "post_channel": "Skool topluluk içi paylaşım",
+    "apply_flow": "İlgilenen üye ilan altına başvurur; müşteriyle doğrudan çalışır",
+    "selection_rules": "Öncelik sırası ve müşteri tercihi",
+    "quality_policy": "unspecified",
+    "confidentiality": "unspecified"
+  },
+  "affiliate": {
+    "available": true,
+    "revenue_share": 0.5,
+    "summary": "Davet ettiğiniz üyenin ödediği miktarın %50'si size aktarılır.",
+    "break_even_example": "2 aktif referral ≈ üyelik maliyetini dengeler.",
+    "payout_method": "unspecified",
+    "tracking": "unspecified",
+    "cookie_window_days": "unspecified"
+  },
+  "open_questions": [
+    "Downgrade/pro-rata akışı nedir?",
+    "Yıllık iptal durumunda geri ödeme kuralı var mı?",
+    "Fatura/vergisel belge ve şirket faturası süreci nedir?",
+    "Kayıtların erişim süresi sınırlı mı? (gün/ay)",
+    "Her proje için gerekli hesaplar ve ek maliyetlerin tablo detayları",
+    "VIP işlerinde kalite standardı ve gizlilik politikası",
+    "VIP 1:1 no-show/erteleme sınırları",
+    "Affiliate ödeme yöntemi ve takip penceresi (cookie)",
+    "OpenAI tipik aylık maliyet aralığı",
+    "Pause/team seat politikaları"
+  ]
+}

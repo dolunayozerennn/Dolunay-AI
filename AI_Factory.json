@@ -1,0 +1,195 @@
+{
+  "meta": {
+    "version": "4.0",
+    "last_updated": "2025-11-10",
+    "channel": "whatsapp",
+    "brand": "AI Factory",
+    "updated_at": "2025-12-22",
+    "purpose": "AI Factory'ye katılmak isteyen kişilerin sorularını yanıtlamak (WhatsApp öndanışma hattı).",
+    "notes": "Bu KB yalnızca AI Factory ile ilgili. Genel teknik sorularda internet araştırması kullanılabilir."
+  },
+  "communication_policy": {
+    "default_language": "tr",
+    "mirror_user_language": true,
+    "style": {
+      "brevity": "very_short",
+      "max_sentences": 2,
+      "max_bullets": 3
+    }
+  },
+  "value_prop": {
+    "headline_tr": "2 ay içinde yapay zekâ sistemlerini kopyala, özelleştir ve gelir elde etmeye başla",
+    "headline_en": "Clone, customize, and start monetizing AI systems within ~2 months",
+    "is_guarantee": false
+  },
+  "plans": [
+    {
+      "id": "standard",
+      "name": "Standard",
+      "who_for": "Eğitimlere ve otomasyonlara erişip kendi başına ilerlemek isteyenler.",
+      "includes": [
+        "Eğitimlere erişim",
+        "Otomasyonlara erişim"
+      ],
+      "excludes": [
+        "Canlı yayınlara ve kayıtlarına erişim"
+      ],
+      "note": "Fiyatlar/koşullar dönemsel değişebilir; en güncel bilgi Skool üyelik sayfasında."
+    },
+    {
+      "id": "premium",
+      "name": "Premium",
+      "who_for": "Daha hızlı ilerlemek isteyen, canlı yayınlar ve kayıtlar + Skool içinde soru-cevap isteyenler.",
+      "includes": [
+        "Standard içeriği",
+        "Canlı yayınlara erişim",
+        "Canlı yayın kayıtlarına erişim",
+        "Skool içinde soru-cevap / yazılı destek"
+      ],
+      "note": "Fiyatlar/koşullar dönemsel değişebilir; en güncel bilgi Skool üyelik sayfasında."
+    },
+    {
+      "id": "vip",
+      "name": "VIP",
+      "who_for": "Dolunay ile ayda 1 saat canlı görüşme de dahil en yakın destek isteyenler.",
+      "includes": [
+        "Premium içeriği",
+        "Ayda 1 saat canlı görüşme (1:1)"
+      ],
+      "one_on_one": {
+        "duration_minutes": 60
+      },
+      "note": "Fiyatlar/koşullar dönemsel değişebilir; en güncel bilgi Skool üyelik sayfasında."
+    }
+  ],
+  "delivery": {
+    "platform": "Skool",
+    "community_url": "https://www.skool.com/yapay-zeka-factory",
+    "modules": [
+      {
+        "id": "n8n_basics",
+        "title": "Sıfırdan n8n Uzmanlığı",
+        "install_ready": true
+      },
+      {
+        "id": "hotel_ai",
+        "title": "Hotel — AI Müşteri Hizmetleri",
+        "install_ready": true
+      },
+      {
+        "id": "supermarket_stock",
+        "title": "Süpermarket — AI Stok Kontrolü",
+        "install_ready": true
+      },
+      {
+        "id": "real_estate_ai",
+        "title": "Emlak — AI Asistan",
+        "install_ready": true
+      },
+      {
+        "id": "youtube_auto",
+        "title": "YouTube — Otomatik Video Üret & Yayınla",
+        "install_ready": true
+      },
+      {
+        "id": "influencer_income",
+        "title": "Influencer — Influencer Gibi Kazan",
+        "install_ready": true
+      },
+      {
+        "id": "other_automations",
+        "title": "Diğer Otomasyonlar",
+        "install_ready": true
+      },
+      {
+        "id": "linkedin_auto",
+        "title": "LinkedIn — Otomatik Yayın & İş Geliştirme",
+        "install_ready": true
+      }
+    ],
+    "setup_time_minutes_range": [
+      30,
+      60
+    ],
+    "includes_install_videos": true,
+    "content_updates": {
+      "automations_updated_regularly": true,
+      "new_videos_added": true
+    }
+  },
+  "live_sessions": {
+    "schedule_source": "Skool Calendar sekmesi",
+    "access": {
+      "premium": true,
+      "vip": true,
+      "standard": false
+    },
+    "recordings_access": {
+      "premium": true,
+      "vip": true,
+      "standard": false
+    },
+    "note": "Program ve içerik dönemsel değişebilir; en güncel bilgi Skool Calendar'da."
+  },
+  "language": {
+    "default": "tr",
+    "respond_in_user_language": true
+  },
+  "policies": {
+    "refund_and_cancellation": "İptal/iade detayları için net bilgi veremiyorum; en güncel koşullar için Skool’daki ödeme/üyelik sayfasını kontrol et."
+  },
+  "enterprise": {
+    "available": true,
+    "when": "Şirket, topluluğa katılmadan doğrudan hizmet almak isterse",
+    "action": "Formu doldurun",
+    "form_url": "https://docs.google.com/forms/d/e/1FAIpQLScP6QbLQzNJklskpaOFzuKz5asA0JyTMqwcee7akxMh7KJXwg/viewform",
+    "who": "10+ kişilik ekip/şirketler için kurumsal ihtiyaçlar",
+    "cta": "Kurumsal iletişim formunu doldurun.",
+    "form_link": "https://docs.google.com/forms/d/e/1FAIpQLScP6QbLQzNJklskpaOFzuKz5asA0JyTMqwcee7akxMh7KJXwg/viewform"
+  },
+  "links": {
+    "approved_only": true,
+    "approved_list": [
+      "https://www.skool.com/yapay-zeka-factory",
+      "https://docs.google.com/forms/d/e/1FAIpQLScP6QbLQzNJklskpaOFzuKz5asA0JyTMqwcee7akxMh7KJXwg/viewform"
+    ],
+    "note": "Bu iki link dışında link paylaşma."
+  },
+  "faq": [
+    {
+      "q": "AI Factory nedir?",
+      "a": "Yapay zekâ otomasyonları (özellikle n8n) ile gelir elde etmeyi öğreten ve şablonlar sunan bir Skool topluluğu."
+    },
+    {
+      "q": "Canlı yayınlara ve kayıtlarına kimler erişebilir?",
+      "a": "Yalnızca Premium ve VIP üyeler erişebilir. En güncel program Skool Calendar'da."
+    },
+    {
+      "q": "Hangi dilde destek alırım?",
+      "a": "Varsayılan Türkçe; hangi dilde yazarsan o dilde cevaplanır."
+    },
+    {
+      "q": "Dolunay ile görüşebilir miyim?",
+      "a": "10+ kişilik bir şirketsen kurumsal formu doldurabilirsin. Değilsen VIP (ayda 1 saat canlı görüşme) veya Premium (Skool içinde soru-cevap) daha uygun."
+    },
+    {
+      "q": "n8n gibi AI Factory dışı teknik sorulara cevap veriyor musunuz?",
+      "a": "Evet, genel teknik sorularda internetten araştırıp kısa bir yönlendirme yapabilirim."
+    },
+    {
+      "q": "İptal/iade var mı?",
+      "a": "İptal/iade detayları için net bilgi veremiyorum; en güncel koşullar için Skool’daki ödeme/üyelik sayfasını kontrol et."
+    }
+  ],
+  "support": {
+    "primary_channel": "Skool topluluğu (post / yorum / DM)",
+    "note": "Destek hızı dönemsel olarak değişebilir."
+  },
+  "affiliate": {
+    "note": "Affiliate detayları kampanyaya göre değişebilir; en güncel bilgi için AI Factory içindeki ilgili duyuruları kontrol et."
+  },
+  "open_questions": [
+    "İptal/iade detayları (net bilgi yok: kullanıcıyı Skool'a yönlendir)",
+    "Takım/kurumsal paket fiyatlandırması (form üzerinden)"
+  ]
+}

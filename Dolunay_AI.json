@@ -1,0 +1,466 @@
+{
+  "name": "Dolunay AI - WhatsApp",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Görevin kullanıcıya cevap vermek.\n\nKullanıcı: {{ $json.user_id }}, şu mesajı gönderdi:\n{{ $json.message }}\n\nKullanıcı hangi dilde yazdıysa o dilde cevap üret.",
+        "options": {
+          "systemMessage": "==ROL\nSen, Dolunay Özeren’in yapay zekâ asistanısın. Amacın AI Factory’ye katılmak isteyen kişilerin sorularını hızlı ve net şekilde cevaplamak.\nBu hatta insan devri yok: Dolunay manuel olarak sohbete dahil olmayacak.\n\n=İLETİŞİM STİLİ\n- Kullanıcının dilini aynala (TR/EN). Varsayılan TR.\n- Çok kısa yaz: 1–2 cümle; en fazla 3 madde.\n- Gereksiz soru sorma. Zorunluysa en fazla 1 netleştirme sorusu sor.\n\n=ARAÇ KULLANIMI (n8n node adları)\n1) Knowledge_base: HER MESAJDAN ÖNCE mutlaka çalıştır. AI Factory ile ilgili cevaplarda birincil kaynak budur.\n2) Web_Search: Knowledge_base yetersizse veya soru AI Factory dışıysa (örn. n8n), internetten araştırıp kısa cevap üret. Kaynak linki verme (kullanıcı özellikle istemedikçe).\n3) Simple Memory: Oturum içi bağlamı koru; hassas bilgi ifşa etme.\n4) Think: Sadece iç planlama.\n\n=ÖZEL DURUMLAR\n- “Dolunay ile konuşmak istiyorum / görüşme istiyorum”:\n  • Eğer 10+ kişilik ekip/şirket ise kurumsal iletişim formunu paylaş.\n  • Değilse VIP (ayda 1 saat canlı görüşme) veya Premium (Skool içinde soru-cevap) öner.\n  • Emin değilsen tek soru sor: “Kaç kişilik bir ekipsiniz (10+ mı)?”\n- İptal/iade: Net bilgi yoksa “en güncel koşullar için Skool’daki ödeme/üyelik sayfasını kontrol et” de.\n- Canlı yayın & kayıtlar: yalnızca Premium ve VIP erişir.\n\n=ÇIKTI KURALLARI\n- İnsan devri / devir tokenı / özel tetikleyici ifadeler KULLANMA.\n- Link yalnızca Knowledge_base’teki onaylı listeden paylaş.\n- CTA zorunlu değil; kullanıcı “katılmak/link/kurumsal/VIP/Premium” gibi sinyal verirse uygun linki ekleyebilirsin.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        -832,
+        112
+      ],
+      "id": "d83d3df2-c152-4176-99c6-d1a92cff65c7",
+      "name": "AI Agent",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "= {{ $json.user_id }}",
+        "contextWindowLength": 30
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -1008,
+        432
+      ],
+      "id": "442a1104-eb59-45fa-9658-d6eba46ba392",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "96dcea2b-4573-4ec9-ac8f-6370add8db4a",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1232,
+        112
+      ],
+      "id": "28ca06a7-c809-4d36-a627-ab9f951855e6",
+      "name": "Webhook",
+      "webhookId": "96dcea2b-4573-4ec9-ac8f-6370add8db4a"
+    },
+    {
+      "parameters": {
+        "messages": {
+          "message": [
+            {
+              "content": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('message0_Text', ``, 'string') }}"
+            }
+          ]
+        },
+        "options": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.perplexityTool",
+      "typeVersion": 1,
+      "position": [
+        -640,
+        432
+      ],
+      "id": "1f54806a-826b-487c-9fa0-05e692257b9c",
+      "name": "Web_Search",
+      "credentials": {
+        "perplexityApi": {
+          "id": "wzjjaP8yRCcNhwR2",
+          "name": "Perplexity account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 1
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -144,
+        112
+      ],
+      "id": "555df17f-fbb8-41d6-ba7c-b7e5b0464021",
+      "name": "Wait",
+      "webhookId": "cd8e465b-998d-4209-8d54-70b497ac77ef"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.manychat.com/fb/subscriber/setCustomField",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 1469149:b7f292ae0f05e951917a554b794534fa"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "subscriber_id",
+              "value": "={{ $('Gelen Data').item.json.user_id }}"
+            },
+            {
+              "name": "field_id",
+              "value": "13424657"
+            },
+            {
+              "name": "field_value",
+              "value": "={{ $json.output }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -304,
+        112
+      ],
+      "id": "01cebbc5-6f78-4f2d-bade-3b41c6f7da6e",
+      "name": "Cevabı ManyChat'e Yaz"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.manychat.com/fb/sending/sendFlow",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 1469149:b7f292ae0f05e951917a554b794534fa"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "subscriber_id",
+              "value": "={{ $('Gelen Data').item.json.user_id }}"
+            },
+            {
+              "name": "flow_ns",
+              "value": "content20250823101653_898847"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        16,
+        112
+      ],
+      "id": "8555987a-f118-411c-97ee-f04de7b3910c",
+      "name": "Flow'u Çalıştır"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "935e9350-005d-4c1f-88d4-db8eecfba462",
+              "name": "output",
+              "value": "={{ ($json.output || '').replace(/HUMAN_HANDOFF/g, '').trim() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -480,
+        112
+      ],
+      "id": "cec73947-a3ba-4e0d-a90f-4ecd843a961f",
+      "name": "Giden Data"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "typeVersion": 1,
+      "position": [
+        -304,
+        432
+      ],
+      "id": "1c7e584e-f6b3-4037-b830-227d39b62fbc",
+      "name": "Think"
+    },
+    {
+      "parameters": {
+        "toolDescription": "AI Factory ile ilgili tüm bilgiler ve onaylı linkler için bu aracı çalıştır (her mesajdan önce).",
+        "url": "https://api.github.com/repos/dolunayozerennn/Dolunay-AI/contents/AI_Factory_KB_v3.json?ref=main",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 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"
+            },
+            {
+              "name": "Accept",
+              "value": "application/vnd.github.raw+json"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        -816,
+        432
+      ],
+      "id": "a5c372f1-64b6-4c1d-989c-745204c5b477",
+      "name": "Knowledge_base"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "45c4bf89-6db4-4116-8b03-8a9e8f442eae",
+              "name": "user_id",
+              "value": "={{ $('Webhook').item.json.body.kullanici_id }}",
+              "type": "string"
+            },
+            {
+              "id": "692f8093-94f9-42ad-ad31-a30450a766e2",
+              "name": "message",
+              "value": "={{ $json.body.last_text_input }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1024,
+        112
+      ],
+      "id": "b50f75a9-afed-4672-b760-90bd6b1bb3db",
+      "name": "Gelen Data"
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-oss-120b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -1184,
+        432
+      ],
+      "id": "4ca6506c-901e-479d-a6fa-fc5f005628bd",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "cOsQyucqYBI8RZk7",
+          "name": "Groq account"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "srnfcwia.rcsrv.net",
+            "user-agent": "ManyChat",
+            "content-length": "75",
+            "accept-encoding": "gzip, br",
+            "cdn-loop": "cloudflare; loops=1",
+            "cf-connecting-ip": "3.67.137.87",
+            "cf-ipcountry": "DE",
+            "cf-ray": "9b19b2ca4f461e62-FRA",
+            "cf-visitor": "{\"scheme\":\"https\"}",
+            "content-type": "application/json",
+            "x-forwarded-for": "3.67.137.87, 172.70.247.103",
+            "x-forwarded-host": "srnfcwia.rcsrv.net",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "e55373ffb478",
+            "x-real-ip": "172.70.247.103"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "kullanici_id": "1088727364",
+            "last_text_input": "Tabikide isterim"
+          },
+          "webhookUrl": "https://srnfcwia.rcsrv.net/webhook/96dcea2b-4573-4ec9-ac8f-6370add8db4a",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Giden Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Gelen Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Web_Search": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Flow'u Çalıştır",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cevabı ManyChat'e Yaz": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Giden Data": {
+      "main": [
+        [
+          {
+            "node": "Cevabı ManyChat'e Yaz",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Think": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Knowledge_base": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gelen Data": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "67b41609-17b3-4684-b202-62b97cfd199b",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "26864db373f0c5e66d53d970bf3488b1dfb1ddc0d9f0bf0196c5111c9404a806"
+  },
+  "id": "dddC2UrnYKrdk2tl",
+  "tags": []
+}

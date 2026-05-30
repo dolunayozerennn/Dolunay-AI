@@ -100,7 +100,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 1469149:b7f292ae0f05e951917a554b794534fa"
+              "value": "Bearer __MANYCHAT_API_TOKEN__"
             },
             {
               "name": "Content-Type",
@@ -145,7 +145,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 1469149:b7f292ae0f05e951917a554b794534fa"
+              "value": "Bearer __MANYCHAT_API_TOKEN__"
             },
             {
               "name": "Content-Type",
@@ -220,7 +220,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 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"
+              "value": "Bearer __GITHUB_TOKEN_REVOKED__"
             },
             {
               "name": "Accept",
